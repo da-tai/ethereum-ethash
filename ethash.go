@@ -48,7 +48,7 @@ import (
 var (
 	maxUint256  = new(big.Int).Exp(big.NewInt(2), big.NewInt(256), big.NewInt(0))
 	sharedLight = new(Light)
-	caches = sharedLight.getCache(3304)
+	caches = sharedLight.getCache(9999)
 )
 
 const (
