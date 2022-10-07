@@ -48,7 +48,7 @@ import (
 var (
 	maxUint256  = new(big.Int).Exp(big.NewInt(2), big.NewInt(256), big.NewInt(0))
 	sharedLight = new(Light)
-	//caches = sharedLight.getCache(29999)
+	caches = sharedLight.getCache(29999)
 )
 
 const (
@@ -194,8 +194,8 @@ func (l *Light) Compute(blockNum uint64, hashNoNonce common.Hash, nonce uint64) 
 
 // compute() to get mixhash and result with algo
 func (l *Light) ComputeWithAlgo(blockNum uint64, hashNoNonce common.Hash, nonce uint64, algo string) (ok bool, mixDigest common.Hash, result common.Hash) {
-	cache := l.getCache(blockNum)
-	//cache := caches
+	//cache := l.getCache(blockNum)
+	cache := caches
 	dagSize := C.ethash_get_datasize(C.uint64_t(blockNum))
 	switch algo {
 	case "progpow":
